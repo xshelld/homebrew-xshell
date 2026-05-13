@@ -3,9 +3,9 @@ class Xshell < Formula
   homepage "https://github.com/xshelld/xshell"
   url "https://pkg.xshell.online/brew/xshell-1.0.17.tar.gz"
   version "1.0.17"
-  sha256 "9c1a7cc431376f70f45d02558a3a08bf380c9bbb706c4c70250ebaa183ebca5f"
+  sha256 "f137cc95313522eba5dbd6e34be58e1809071c010caeceb7b89c78bbf32f09f2"
   license "GPL-3.0-or-later"
-
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -13,7 +13,7 @@ class Xshell < Formula
 
   resource "libdatachannel" do
     url "https://pkg.xshell.online/brew/libdatachannel-28b2e730f4c7.tar.gz"
-    sha256 "75927732de0f6268d53e98452601e72c9e5a61d879c88973ad23a9c43d807992"
+    sha256 "0ba7e560d17f54ab07aabe009931c23db001278fb07e58cedf8f9779ce2c969f"
   end
 
   def install
