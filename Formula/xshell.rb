@@ -3,9 +3,9 @@ class Xshell < Formula
   homepage "https://github.com/xshelld/xshell"
   url "https://pkg.xshell.online/brew/xshell-1.0.17.tar.gz"
   version "1.0.17"
-  sha256 "845fbdea50bfa0d08d24eda1dc431357daf27373b88f66ead4d48cb32ce81c64"
+  sha256 "a410299ccadc0c8343c419b1945166a3744924e9905b0312c5de68277f259e65"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -13,7 +13,7 @@ class Xshell < Formula
 
   resource "libdatachannel" do
     url "https://pkg.xshell.online/brew/libdatachannel-28b2e730f4c7.tar.gz"
-    sha256 "4b691a974b1265a5e55b0b0667fd366ea2542fdcd1ad4ea38243aedfa7f49039"
+    sha256 "24a66b5609338005577d9d0a4cc87b2223aeca9d7473b916522b82556f25633f"
   end
 
   def install
@@ -60,6 +60,9 @@ class Xshell < Formula
     inreplace "src/common/Makefile",
               common_rtc_block,
               "CFLAGS += -I#{vendor_include}\n"
+    inreplace "src/common/logger.c",
+              '#define XSHELL_LOG_PATH_DEFAULT "/var/log/xshell"',
+              "#define XSHELL_LOG_PATH_DEFAULT \"#{var}/log/xshell\""
 
     ["src/host/Makefile", "src/client/Makefile"].each do |path|
       inreplace path,
@@ -83,12 +86,16 @@ class Xshell < Formula
     doc.install "README.md", "LICENSE", "pkg/CHANGELOG.md"
   end
 
+  def post_install
+    (var/"log/xshell").mkpath
+  end
+
   service do
     run [opt_bin/"xshell"]
     keep_alive true
     working_dir Dir.home
-    log_path var/"log/xshell.log"
-    error_log_path var/"log/xshell.log"
+    log_path var/"log/xshell/xshell.log"
+    error_log_path var/"log/xshell/xshell.log"
   end
 
   def caveats
