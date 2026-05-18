@@ -3,9 +3,9 @@ class Xshell < Formula
   homepage "https://github.com/xshelld/xshell"
   url "https://pkg.xshell.online/brew/xshell-1.0.17.tar.gz"
   version "1.0.17"
-  sha256 "4fb38862c7be120430f8c40448c41008ad3502b5994825a3681a3df112a2717c"
+  sha256 "80786a9f774d78c538293caf9c9ac17e0ba036ad4ce385d987b6c7b081679d24"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -13,7 +13,7 @@ class Xshell < Formula
 
   resource "libdatachannel" do
     url "https://pkg.xshell.online/brew/libdatachannel-28b2e730f4c7.tar.gz"
-    sha256 "c188aac53a8f12c1eb251b38d455473247a92f12c07e1a4c57606e5611cc91c5"
+    sha256 "60c36e43808dd8670b4e936ad9a545e9addb272916c96e772f5bb5affe47debe"
   end
 
   def install
@@ -100,8 +100,8 @@ class Xshell < Formula
 
   def caveats
     <<~EOS
-      Generate the host config once before starting the service:
-        #{opt_bin}/xshell -i
+      Log in in the browser to enroll your fisrs device:
+        https://xshell.online/login
 
       Then start the launchd service:
         brew services start xshell
