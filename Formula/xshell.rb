@@ -3,7 +3,7 @@ class Xshell < Formula
   homepage "https://github.com/xshelld/xshell"
   url "https://pkg.xshell.online/brew/xshell-1.0.17.tar.gz"
   version "1.0.17"
-  sha256 "6b64cd5844269341c30c800d66e39edfc5d713fe8bfaad9b665a7cc3f195c94e"
+  sha256 "ef0f3e0401e386a39f4de8d2d2d8837fd8b9cae7ecf22e6786472a5edfe18cfc"
   license "GPL-3.0-or-later"
   revision 6
 
@@ -13,7 +13,7 @@ class Xshell < Formula
 
   resource "libdatachannel" do
     url "https://pkg.xshell.online/brew/libdatachannel-28b2e730f4c7.tar.gz"
-    sha256 "b058f73c0f6530af735ecd75c2107396ca9a55f23d0c790a89ec7b21744ad39f"
+    sha256 "b61dbbb2906d32c54ad935bbf46f9d018679ea9047def32cefc79852d68ae0a4"
   end
 
   def install
